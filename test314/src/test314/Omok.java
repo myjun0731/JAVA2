@@ -165,6 +165,42 @@ public class Omok extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Omok());
+        SwingUtilities.invokeLater(() -> new OmokStartPage());  // 오목 시작 페이지 실행
+    }
+
+    // 오목 시작 페이지 클래스
+    static class OmokStartPage extends JFrame {
+
+        public OmokStartPage() {
+            setTitle("오목 게임 시작");
+            setSize(300, 200);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setLocationRelativeTo(null);
+
+            // 시작 버튼
+            JButton startButton = new JButton("게임 시작");
+            startButton.addActionListener(e -> startGame());
+
+            // 프로그램 끝내기 버튼
+            JButton exitButton = new JButton("프로그램 끝내기");
+            exitButton.addActionListener(e -> System.exit(0));
+
+            // 버튼 패널에 추가
+            JPanel buttonPanel = new JPanel();
+            buttonPanel.add(startButton);
+            buttonPanel.add(exitButton);
+
+            // 레이아웃 설정
+            setLayout(new BorderLayout());
+            add(buttonPanel, BorderLayout.CENTER);
+
+            setVisible(true);
+        }
+
+        private void startGame() {
+            // 오목 게임 시작
+            new Omok();  // Omok 클래스 인스턴스 생성
+            this.dispose();  // 시작 페이지 창 닫기
+        }
     }
 }
