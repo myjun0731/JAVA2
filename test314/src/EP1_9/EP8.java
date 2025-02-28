@@ -1,4 +1,4 @@
-package test314;
+package EP1_9;
 
 //Q1. Animal 클래스를 생성하고 sound() 메소드를 추가하세요.
 class Animal {
